@@ -1,0 +1,13 @@
+Issue #103
+---------
+
+DESIRED CHANGE: 
+  1. Create a subscriptions facade capable of tying in new customers and existing customer subscription creation.
+
+TASK LIST:
+----------
+* DONE Finish subscription facade so it can start and stop subscriptions for new customers
+** TODO Cancel subscription (Need DAO)
+* TODO Decide if we want email notifications on success failure
+* TODO Write subscription facade tests
+** TODO Make sure customers aren't rolled back

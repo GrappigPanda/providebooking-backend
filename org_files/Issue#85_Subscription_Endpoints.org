@@ -1,0 +1,20 @@
+Issue #85
+---------
+
+DESIRED CHANGE: 
+  1. Need subscription endpoints so that the frontend can start/stop/resume subscriptions
+
+TASK LIST:
+----------
+* DONE Endpoints
+** DONE Get subscription endpoint
+** DONE Start as new customer
+** DONE Start as old customer
+** DONE Cancel subscription
+* TODO Endpoint Tests
+** TODO Get w/ subscription
+** TODO Get w/o subscription
+** DONE Start as new
+** DONE Start as old
+** DONE Cancel subscription
+** DONE Cancel subscription fail not exists

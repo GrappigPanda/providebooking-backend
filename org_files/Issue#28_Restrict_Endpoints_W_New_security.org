@@ -1,0 +1,20 @@
+Issue #28
+---------
+
+DESIRED CHANGE: 
+  1. Add security to submerchants and token generation endpoints.
+     
+TASK LIST:
+----------
+* DONE Determine if either submerchants or transaction ID needs change to the decorator. (no user_id in route).
+  Submerchant was changed to have route of `/braintree/{user_id}/submerchant`.
+  Same thing for transaction. New route: `/braintree/{user_id}/generate_token`.
+* DONE Create an issue in web to update with changes to braintree token generation.
+* DONE Implement any necessary changes to decorator.
+  None required.
+* DONE Add decorator to each endpoint.
+* DONE Remove config['TESTING'] from these two.
+* DONE Write tests for submerchant (injecting JWT).
+* DONE Write tests for token gen (injecting JWT).
+  No tests found.
+

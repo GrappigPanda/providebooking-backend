@@ -1,0 +1,18 @@
+Issue #11
+---------
+
+DESIRED CHANGE: 
+  1. Updating pricing constants to reflect our pricing model
+
+TASK LIST:
+----------
+* DONE Update default submerchant table `service_fee` to .025 (We get 2.5% cut)
+* DONE Update `EventTable.total_price` to reflect `((userPriceAtDuration * durationCount) * .026) + .02
+** DONE Fix any tests broken by this change.
+* DONE Add column to payment table: scheduling_charged(db.DECIMAL, nullable=False)
+* DONE Write more tests around events + payments. Make sure correct amounts are being properly recorded.
+* DONE Migrations.
+
+
+
+

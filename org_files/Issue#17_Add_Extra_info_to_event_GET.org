@@ -1,0 +1,21 @@
+Issue #17
+---------
+
+DESIRED CHANGE: 
+  1. Retrieving an event needs to include scheduled user and scheduling user info, as well.
+     
+TASK LIST:
+----------
+* DONE Join event on scheduling user and scheduled user info.
+  No new method/endpoint for this.
+* DONE marshalize each one individually and return.
+* DONE Add/edit unit tests to make sure this is working properly.
+  Still need to make sure scheduled/scheduling aren't null
+  Compare values in the actual 'scheduled' and 'scheduling' objects.
+* DONE Add `authentication_required()` to all event endpoints.
+* DONE Create a frontend ticket to work with updated changes
+  1. Removed `scheduling_user_id` from event POST()
+* DONE Get unit tests working with any breaking changes.
+* DONE New ticket for endpoints awaiting security.
+  1. User management.
+* DONE Finish fixing unit tests in `test_events_facade`. Still some failing

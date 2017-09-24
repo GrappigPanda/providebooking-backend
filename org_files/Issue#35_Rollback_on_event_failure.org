@@ -1,0 +1,19 @@
+Issue #35
+---------
+
+DESIRED CHANGE: 
+  1. Whenever a event fully fails to initialize (submerchant transaction &c.), the event should not persist in the database.
+     
+TASK LIST:
+----------
+* DONE Add option `skip_commit` to any event DAO methods which we may want to not immediately save.
+** DONE EventDAO().create_new_event()
+** DONE BraintreePaymentFacade().issue_new_payment()
+   Not necessary, deals with an integration, not our DB.
+** DONE Braintree().insert_transaction()
+* DONE pass `skip_commit` to `exec_and_commit()`
+* DONE Add a default address for testing user.
+* DONE Add a schedule for the scheduled user.
+* DONE Finish tests on events.
+* DONE Add option `skip_commit` to any user DAO methods which we may want to not immediately save.
+* DONE Finish tests on users.

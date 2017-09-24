@@ -1,0 +1,27 @@
+Issue #100
+---------
+
+DESIRED CHANGE: 
+  1. Create a subscription DAO.
+  2. Add subscription DAO to subscription facade.
+  3. Add cancel_subscription to subscription facade.
+
+TASK LIST:
+----------
+* DONE Create table
+* DONE Create DAO
+** DONE Get subscription
+** DONE Get subscription by userID
+** DONE start subscription
+** DONE Cancel subscription
+* TODO Tests for DAO
+** TODO Add sub
+** TODO Get sub for user
+*** TODO Fail: Invalid user id
+** TODO Get sub by id
+*** TODO Fail: Invalid sub id
+** TODO Cancel sub
+*** TODO Fail: Invalid sub ID
+* TODO Add DAO to subscription facade
+** TODO Assert no pre-existing subscription when starting a subscription.
+* TODO Create migration

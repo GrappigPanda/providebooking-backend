@@ -1,0 +1,24 @@
+Issue #34
+---------
+
+DESIRED CHANGE: 
+  1. Whenever a user registers we want to send an email
+  2. Take a token from that email to validate the user.
+
+TASK LIST:
+----------
+* DONE What to use for our token? Hash of UUID?
+  Just use a UUID
+* DONE Add mail queue add to user_facade
+* DONE Add test to verify there's a queue item in there afterwards.
+* DONE Replace any instances of calling `user_dao()` with `UserFacade.create_user()`
+* DONE Add DAO method to verify the token. (Remove the token afterwards)
+* DONE Write a verification endpoint
+* DONE Regenerate migrations
+* DONE New migration to add column for verification token
+* DONE Unit tests to verify verification works
+** DONE Fail on nonexistent token.
+** DONE Pass on existent token (assert token is cleaned up afterwards)
+** DONE Pass Regenerate token
+** DONE Fail Regenerate token email not found.
+* DONE Refactor `UserDAO.post()` to `UserDAO.create_new_user()`

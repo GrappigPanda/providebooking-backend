@@ -1,0 +1,29 @@
+Issue #9
+---------
+
+DESIRED CHANGE: 
+  1. Use range types in place of start_ and end_ times.
+
+TASK LIST:
+----------
+* DONE Find out how to use range types in sqlalchemy.
+* DONE Find out which indexes can be used to avoid overlapping.
+** DONE Use an `EXCLUDE` constraint to ensure no overlapping.
+* DONE Remove indexable assertions.
+** DONE _assert_no_event_overlap can be removed b/c handled with `EXCLUDE`
+** DONE _assert_no_schedule_overlap can be removed (see above).
+* DONE Convert events over to range types.
+** DONE Update event table to use `tstzrange` for local tz range
+** DONE Update event table to use `tstzrange` for utc tz range
+** DONE Fix any unit tests raised from above issue.
+* DONE Convert schedule over to range types.
+** DONE Update schedule table to use `tstzrange` for local tz range
+** DONE Update schedule table to use `tstzrange` for utc tz range
+** DONE Replace any references to `utc_open` and `utc_end` in sql queries with between lookup
+** DONE Fix any unit tests raised from above issue.
+* DONE Catch the exceptions from `EXCLUDE` assertion and handle it.
+** Already done w/ `exec_and_commit`
+* DONE Fix return schemas
+** DONE event return schema
+** DONE schedule return schema
+* DONE Create an issue to change `month_number` to a range. They can range between months.

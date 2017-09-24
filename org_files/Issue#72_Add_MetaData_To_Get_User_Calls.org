@@ -1,0 +1,19 @@
+Issue #72
+---------
+
+DESIRED CHANGE: 
+  1. Attach account status to authenticated user calls
+
+TASK LIST:
+----------
+* DONE Add `get` method to UserFacade
+** DONE Call DAO
+** DONE Call submerchant and grab info from there.
+* DONE Add `get_by_email` method to UserFacade
+** DONE Call DAO
+** DONE Call submerchant and grab info from there.
+* DONE Unit tests for the facade itself.
+** DONE Going to have to add some mock submerchant data for these users.
+** DONE Pass Rejected Account
+** DONE Pass Approved Account
+* TODO Make sure get_by_email is throwing 404

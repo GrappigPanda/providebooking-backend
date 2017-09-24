@@ -1,0 +1,22 @@
+INSERT INTO users
+(id, public_id, created_at, email, password, is_deleted, local_tz, is_premium, five_min_price, fifteen_min_price, thirty_min_price, sixty_min_price)
+VALUES(1, '5393c148-7afb-4ce1-8db7-9d485f45dcd2', '2017-05-06 02:17:11.538999', 'ian@ianleeclark.com', '$2b$10$NnSB6hq2STCn7FFrqWolq.colQKZIhFBwSDHd9UlV2iaoWxoPcY.6', NULL, 'America/Chicago', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO users
+(id, public_id, created_at, email, password, is_deleted, local_tz, is_premium, five_min_price, fifteen_min_price, thirty_min_price, sixty_min_price)
+VALUES(2, '4444c148-7afb-4ce1-8db7-9d485f45dcd2', '2017-05-06 02:17:11.538999', 'ilc.ianclark@gmail.com', '$2b$10$NnSB6hq2STCn7FFrqWolq.colQKZIhFBwSDHd9UlV2iaoWxoPcY.6', 1, 'America/Chicago', 0, NULL, NULL, NULL, 100.00);
+
+INSERT INTO schedules
+(public_id, created_at, user_id, utc_open, utc_end, day_number, local_tz, local_tz_open, local_tz_end)
+VALUES(
+  'ef4f2d02-3203-11e7-93ae-92361f002671',
+  CURRENT_TIMESTAMP,
+  (SELECT public_id FROM users WHERE email = 'ilc.ianclark@gmail.com'),
+  datetime('now', '-5 hours'),
+  datetime('now', '+5 hours'),
+  0,
+  'UTC',
+  datetime('now'),
+  datetime('now', '+60 minutes')
+);
+

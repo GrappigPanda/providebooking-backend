@@ -1,0 +1,22 @@
+Issue #27
+---------
+
+DESIRED CHANGE: 
+  1. We need a decorator which can wrap endpoints to assert requesting user has 
+     editing/viewing power.
+     
+TASK LIST:
+----------
+* DONE Barebones decorator, nothing fancy.
+* DONE Create a SecurityException, default to 403?
+* DONE Wrap each address endpoint in `authentication_required`
+* DONE Re-enable JWT pre-requesting parsing.
+* DONE Disable (set `TESTING` = True) JWT for most endpoints. Just leave addresses.
+* DONE In JWT pre-request hook, set global claims object.
+  If not findable, and URI not in whitelist, throw `SecurityException`.
+* DONE Edit decorator to check claims object user ID in URI.
+  If not, throw a `SecurityException`.
+* DONE Can we test this? I'd prefer to test.
+* DONE Record endpoints needing authorization
+** TODO Submerchants.
+** TODO `transaction` endpoints for generating a token? Preferably? Should we ever generate useful ones?

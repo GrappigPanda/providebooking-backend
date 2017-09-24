@@ -1,0 +1,37 @@
+Issue #38
+---------
+
+DESIRED CHANGE: 
+  1. Create a production quality Dockerfile.
+     
+TASK LIST:
+----------
+* DONE Create an issue in FE to get FE working w/ nginx in compose stack.
+  Make a note that it ought to not bundle the shit into the nginx file, but serve off local disk.
+* DONE Install requirements
+* DONE Expose external port
+* DONE Gunicorn running the application.
+* DONE Make Gunicorn run options configurable via ENVVAR
+* DONE Create a `docker-compose.yml` file to set up our stack. 
+* DONE Postgres DB configurable via ENVVAR
+  Insofar as changing user/password, this is already viable due to using postgres' docker image.
+* DONE Make braintree configuration configurable via config file
+* DONE Get `db` in docker compose to volume on local disk.
+  NOTE: It looks like the PG image is already doing this by default, so we can skip
+* DONE Backend environment variables to implement
+  1. KRONIKL_JWT_KEY
+  2. KRONIKL_JWT_EXPIRATION
+  3. KRONIKL_BRAINTREE_MERCHANT_ID
+  4. KRONIKL_BRAINTREE_PUBLIC_KEY
+  5. KRONIKL_BRAINTREE_PRIVATE_KEY
+* DONE Add kronikl-mailer to the necessary things.
+  `mix_docker` can be used here. see the shovik.com blog about it.
+* DONE Make kronikl-mailer mailgun stuff configurable via envvar.
+* DONE Get migrations working.
+* DONE Make a migrator image which all the others depend off of. build locally
+  This is actually a shitty idea. See following tag.
+* DONE Edit entry point bash script to ensure that migrations are ran.
+  Seems to be that `exec` in a bash script forces script end?
+* DONE Make sure tests are still able to run.
+  Some tests may be broke a bit. Need to switch to range types.
+* DONE Rerun migrate to see if anything changed.

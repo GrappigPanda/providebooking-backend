@@ -1,0 +1,19 @@
+Issue #10
+---------
+
+DESIRED CHANGE: 
+  1. Receive submerchant success/failure webhooks.
+     
+TASK LIST:
+----------
+* DONE Get a submerchant response.
+* DONE Write a webhook payload parser.
+* DONE Add an endpoint for handling incoming webhook responses.
+* DONE Update the submerchant to verified in the DB.
+* DONE Add tests for verifying the webhook parser continues to work.
+** DONE Successful webhook
+** DONE Failure webhook.
+* DONE Change merchant DAO to only retrieve approved submerchants.
+  Skipping.
+* DONE Find out why other tests are failing.
+  Seems like time is fucked. Funny considering the nature of this project.

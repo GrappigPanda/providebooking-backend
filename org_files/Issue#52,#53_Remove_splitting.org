@@ -1,0 +1,25 @@
+Issue #52
+---------
+
+DESIRED CHANGE: 
+  1. Make sure events are no longer split return the entire damn thing.
+
+TASK LIST:
+----------
+* DONE Remove `_split_for_events`
+* DONE Change any return marshals not not return list.
+* DONE Change any unit tests over which are possible.
+
+  
+Issue #53
+---------
+
+DESIRED CHANGE: 
+  1. Make sure schedules are no longer split return the entire damn thing.
+
+TASK LIST:
+----------
+* DONE Remove `_split_for_schedules`
+  WEasn't actually a function, was in the method itself.
+* DONE Change any return marshals not not return list.
+* DONE Change any unit tests over which are possible.

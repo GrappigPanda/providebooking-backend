@@ -1,0 +1,16 @@
+Issue #25
+---------
+
+DESIRED CHANGE: 
+  1. Allow, if time > 60, to be bookable, iff it's a multiple of 60.
+     
+TASK LIST:
+----------
+* DONE Change _assert_valid_duration in dao/facade.
+  Note: This is located in the DAO from the `BaseDAO`.
+* DONE Change _assert_valid_duration in events table.
+* DONE Write unit tests to verify this works.
+** DONE [test:pass] Paid event 3 hours.
+** DONE [test:fail] Paid 2 hours 45 minutes.
+** DONE [test:pass] Non-paid event 3 hours.
+** DONE [test:fail] None-paid 2 hours 45 minutes.

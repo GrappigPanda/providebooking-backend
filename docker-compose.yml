@@ -1,0 +1,52 @@
+version: '2'
+services:
+  db:
+    restart: always
+    image: postgres:latest
+    environment:
+      - PGDATA=/var/lib/postgresql/data
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASS=postgres
+      - POSTGRES_DB=postgres
+  backend:
+    restart: always
+    build: .
+    depends_on:
+      - db
+    expose:
+      - "8000"
+    environment:
+      - GUNICORN_WORKERS=3
+      - GUNICORN_TIMEOUT=120
+      - GUNICORN_LOG_LEVEL=debug
+      - KRONIKL_JWT_KEY=testsecretkey
+      - KRONIKL_JWT_EXPIRATION=15
+      - KRONIKL_BRAINTREE_ENVIRONMENT=sandbox
+      - KRONIKL_BRAINTREE_MERCHANT_ID=<MERCHANT_ID>
+      - KRONIKL_BRAINTREE_PUBLIC_KEY=<PUBLIC_KEY>
+      - KRONIKL_BRAINTREE_PRIVATE_KEY=d8a1a6ce8de596691be3d0d18678d095
+      - KRONIKL_POSTGRES_FQDN=postgres://postgres:postgres@localhost/test_dev
+      - KRONIKL_EMAIL_FORWARD_TO=ian@ianleeclark.com
+  nginx:
+    restart: always
+    build: ./build/nginx
+    depends_on:
+      - backend
+    links:
+      - backend
+    ports:
+      - "80:80"
+  kronikl_mailer:
+    image: grappigpanda/kronikl-mailer:release
+    depends_on:
+      - db
+    links:
+      - db
+    restart: always
+    environment:
+      - MAILER_DB_FQDN=localhost
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=mailer_dev
+      - MAILGUN_API_KEY=<MAILGUN_KEY>
+      - MAILGUN_DOMAIN=mail.kronikl.io

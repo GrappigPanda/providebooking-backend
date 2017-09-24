@@ -1,0 +1,16 @@
+pipeline:
+  backend:
+    image: python:3.6
+    environment:
+      - KRONIKL_JWT_KEY=testsecretkey
+      - KRONIKL_JWT_EXPIRATION=15
+      - KRONIKL_BRAINTREE_ENVIRONMENT=sandbox
+      - KRONIKL_BRAINTREE_MERCHANT_ID=<BRAINTREE_MERCHANT_ID>
+      - KRONIKL_BRAINTREE_PUBLIC_KEY=<BRAINTREE_PK>
+      - KRONIKL_BRAINTREE_PRIVATE_KEY=<BRAINTREE_SK>
+      - KRONIKL_POSTGRES_FQDN=postgres://postgres:postgres@localhost/dronetest01?client_encoding=utf-8
+      - KRONIKL_EMAIL_FORWARD_TO=ian@ianleeclark.com
+    commands:
+      - pip install -r requirements.txt
+      - python migrate.py db upgrade
+      - python3 -m unittest discover -s tests/

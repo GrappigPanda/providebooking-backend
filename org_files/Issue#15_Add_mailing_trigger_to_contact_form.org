@@ -1,0 +1,12 @@
+Issue #15
+---------
+
+DESIRED CHANGE: 
+  1. Have contact forms be automatically rerouted to ian@ianleeclark.com
+     
+TASK LIST:
+----------
+* DONE Create new mail DAO.
+* DONE Create contact facade.
+* DONE Replace references to old contact DAO w/ new facade.
+* DONE Make destination email configurable.

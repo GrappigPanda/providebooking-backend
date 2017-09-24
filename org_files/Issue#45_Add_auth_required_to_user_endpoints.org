@@ -1,0 +1,16 @@
+Issue #45
+---------
+
+DESIRED CHANGE: 
+  1. Any user endpoints which ought to be protected, ought to have `@auth_required()` decoration.
+
+TASK LIST:
+----------
+* DONE Determine which endpoints need authentication
+** DONE Users.get() -- Retrieves all user info
+** DONE Users.post() -- Not necessary, used to create user.
+** DONE Users.delete() -- Obvious.
+** DONE GetUserByEmail.get() -- See `Users.get()` above.
+** DONE UserPreferences().put() -- Updates preferences, so obvious.
+* DONE Remove `TESTING=True` from tests.
+* DONE Add headers to each test.

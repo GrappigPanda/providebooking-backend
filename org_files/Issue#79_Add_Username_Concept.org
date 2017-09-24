@@ -1,0 +1,13 @@
+Issue #79
+---------
+
+DESIRED CHANGE: 
+  1. Create a username concept for display purposes
+
+TASK LIST:
+----------
+* DONE Change register user to accept a username
+* DONE Table changes
+* DONE Change marshallizer to return username
+* DONE Update Tests
+* DONE Create migration
